@@ -1,0 +1,34 @@
+# ----Training parameters --------------------------------
+n_epoch: 20
+layers: 5
+channels: 1
+features: 32
+
+n_workers: 8
+scheduler_mode: min
+scheduler_patience: 1
+model_name: fcn
+loss_function: 'L2'
+alpha_loss: [ 1 ]
+beta_loss: [ 0.5 ]
+
+
+data_dir: "data"
+trainset: 'val'
+valset: 'val'
+normalize: True
+clip: False
+sigma_range: [ 10, 15, 20, 25, 30, 35, 40, 45, 50 ,55 ]
+device: 'cuda:0'
+output_mode: "image"
+noise_mode: "rice"
+
+# ----Dataset parameters --------------------------------
+dataset_stride: 9
+batch_size: 128
+
+# Adam Optimizer
+alpha_adam: 0.01
+beta1_adam: 0.9
+beta2_adam: 0.999
+epsilon_adam: 1.0E-8

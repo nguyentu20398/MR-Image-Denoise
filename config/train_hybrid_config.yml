@@ -1,0 +1,45 @@
+model:
+  denoise:
+    model_name: 'dnresnet'
+    layer: 10
+    input_channel: 2
+    out_channels: 1
+    features: 192
+    pretrained: "result/layers_dnresnet10_Falseclip_Truenormalize_sigrange10_10_image_withMap/model_040.pth"
+  noisemap:
+    model_name: 'fcn'
+    layer: 5
+    input_channel: 1
+    features: 32
+
+n_epoch: 10
+n_workers: 1
+scheduler_mode: min
+scheduler_patience: 1
+
+loss_function: 'hybrid'
+alpha_loss: 0.5
+beta_loss: 0.05
+
+data_dir: "data"
+trainset: 'val'
+valset: 'val'
+normalize: True
+clip: False
+sigma_range: [10, 15, 25]
+device: 'cuda:0'
+#device: 'cpu'
+
+output_mode: "image"
+with_map: True
+
+# ----Dataset parameters --------------------------------
+dataset_stride: 9
+batch_size: 1
+
+# Adam Optimizer
+epoch_change_lr: [5]
+alpha_adam: 0.001 #lr
+beta1_adam: 0.9
+beta2_adam: 0.999
+epsilon_adam: 1.0E-8

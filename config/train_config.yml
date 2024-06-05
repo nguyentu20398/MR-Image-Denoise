@@ -1,0 +1,29 @@
+# ----Training parameters --------------------------------
+n_epoch: 10
+layers: [10]
+channels: 1
+features: 192
+
+n_workers: 6
+scheduler_mode: min
+scheduler_patience: 1
+model_name: dncnn
+loss_function: 'L1'
+
+trainset: 'val'
+valset: 'val'
+normalize: True
+clip: False
+sigma_range: [5]
+device: 'cuda:0'
+output_mode: "image"
+
+# ----Dataset parameters --------------------------------
+dataset_stride: 9
+batch_size: 32
+
+# Adam Optimizer
+alpha_adam: 0.01
+beta1_adam: 0.9
+beta2_adam: 0.999
+epsilon_adam: 1.0E-8
